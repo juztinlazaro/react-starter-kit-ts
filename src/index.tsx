@@ -8,8 +8,9 @@ import { createEpicMiddleware } from 'redux-observable';
 import App from './appRoot/App';
 import rootEpic from './store/rootEpics';
 import rootReducer from './store/rootReducers';
-import './index.scss';
 import * as serviceWorker from './serviceWorker';
+
+import './assets/css/main.scss';
 
 const composeEnhancers =
   /* tslint:disable-next-line:no-string-literal */
