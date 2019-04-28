@@ -3,10 +3,7 @@
     "outDir": "build/dist",
     "module": "esnext",
     "target": "es5",
-    "lib": [
-      "es7",
-      "dom"
-    ],
+    "lib": ["es7", "dom"],
     "sourceMap": true,
     "allowJs": true,
     "jsx": "preserve",
@@ -17,7 +14,7 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "importHelpers": true,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "skipLibCheck": false,
@@ -26,7 +23,8 @@
     "strict": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "baseUrl": "src"
   },
   "exclude": [
     "node_modules",
@@ -36,7 +34,5 @@
     "webpack",
     "jest"
   ],
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

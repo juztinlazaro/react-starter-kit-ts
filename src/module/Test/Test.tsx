@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { getHomeDataEpics } from '../../store/actions/home/actions';
+import { getHomeDataEpics } from '../../store/home/actions';
 
 interface IHomeProps {
   getHomeDataEpics: any;

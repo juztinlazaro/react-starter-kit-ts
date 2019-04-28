@@ -3,7 +3,7 @@ import {
   getHomeDataSuccess,
   getHomeDataError,
   getHomeDataLoading,
-} from '../../actions/home/actions';
+} from './actions';
 import Model from './model';
 
 interface IHomeReducer {

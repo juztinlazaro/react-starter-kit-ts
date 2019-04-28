@@ -11,6 +11,7 @@
     "no-console": false,
     "named-imports-order": "any",
     "ordered-imports": false,
-    "jsx-no-lambda": [false]
+    "jsx-no-lambda": [false],
+    "member-access": [true, "no-public"]
   }
 }

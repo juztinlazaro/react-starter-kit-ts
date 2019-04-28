@@ -6,8 +6,7 @@ import './App.css';
 const Test = React.lazy(() => import('../module/Test/Test'));
 
 class App extends React.Component {
-  // tslint:disable-next-line jsx-no-lambda
-  public render() {
+  render() {
     return (
       <React.Suspense fallback={<div>Loading...</div>}>
         <Switch>
