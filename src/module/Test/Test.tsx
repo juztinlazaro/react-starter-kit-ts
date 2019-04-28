@@ -7,10 +7,11 @@ interface IHomeProps {
 }
 
 class Test extends React.Component<IHomeProps, any> {
-  public onGetBlog = () => {
+  onGetBlog = () => {
     this.props.getHomeDataEpics();
   };
-  public render() {
+
+  render() {
     return (
       <div>
         <h1>Test component</h1>
