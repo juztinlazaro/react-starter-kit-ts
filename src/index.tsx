@@ -10,6 +10,7 @@ import rootEpic from './store/rootEpics';
 import rootReducer from './store/rootReducers';
 import * as serviceWorker from './serviceWorker';
 
+import 'antd/dist/antd.css';
 import './assets/css/main.scss';
 
 const composeEnhancers =

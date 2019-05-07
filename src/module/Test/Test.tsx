@@ -2,11 +2,11 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { getHomeDataEpics } from '../../store/home/actions';
 
-interface IHomeProps {
-  getHomeDataEpics: any;
+interface ITestProps {
+  getHomeDataEpics: () => void;
 }
 
-class Test extends React.Component<IHomeProps, any> {
+class Test extends React.Component<ITestProps, {}> {
   onGetBlog = () => {
     this.props.getHomeDataEpics();
   };
