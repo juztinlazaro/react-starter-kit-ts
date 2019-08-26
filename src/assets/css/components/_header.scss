@@ -1,0 +1,23 @@
+.header-section {
+  display: flex;
+  padding: 20px 40px;
+
+  .item {
+    width: 50%;
+
+    &:last-child {
+      text-align: right;
+    }
+  }
+
+  .item .title {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .link-items .link {
+    margin-right: 20px;
+    display: inline-block;
+    color: $snow;
+  }
+}
