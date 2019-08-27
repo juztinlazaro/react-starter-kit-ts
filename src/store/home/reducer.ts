@@ -6,7 +6,7 @@ import {
 } from './actions';
 import Model from './model';
 
-interface IHomeReducer {
+export interface IHomeReducer {
   homeData: object;
   loading: boolean;
 }

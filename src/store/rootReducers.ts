@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
 
+import { IRootReducer } from './rootReducer.interface';
 import homeReducer from './home/reducer';
 
-const rootReducers = combineReducers({
+const rootReducers = combineReducers<IRootReducer>({
   homes: homeReducer,
 });
 

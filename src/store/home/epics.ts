@@ -19,7 +19,7 @@ export const getHomeDataEpic = (action$: any) =>
   action$.pipe(
     ofType(TYPES.GET_HOME_DATA_EPIC),
     switchMap(() =>
-      ajax('https://www.metaweather.com/api/location/search/?query=san').pipe(
+      ajax('https://jsonplaceholder.typicode.com/users/1').pipe(
         map(result => getHomeDataSuccess(result.response)),
         takeUntil(action$.pipe(ofType(TYPES.GET_HOME_DATA_CANCEL))),
         catchError(error => of(getHomeDataError(error))),

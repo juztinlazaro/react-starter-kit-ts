@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { getHomeDataEpics } from '../../store/home/actions';
+import { mapStateToProps, mapDispatchToProps } from './connect';
 
 interface ITestProps {
-  getHomeDataEpics: () => void;
+  getHomeDataEpic: () => void;
+  getHomeDataCancel: () => void;
 }
 
 interface ITestState {
@@ -20,6 +21,10 @@ class Test extends React.Component<ITestProps, ITestState> {
     });
   }
 
+  componentWillUnmount() {
+    this.props.getHomeDataCancel();
+  }
+
   handleChangeStatus = () => {
     this.setState(prevState => ({
       status: !prevState.status,
@@ -27,7 +32,7 @@ class Test extends React.Component<ITestProps, ITestState> {
   };
 
   onGetBlog = () => {
-    this.props.getHomeDataEpics();
+    this.props.getHomeDataEpic();
   };
 
   render() {
@@ -43,6 +48,6 @@ class Test extends React.Component<ITestProps, ITestState> {
 }
 
 export default connect(
-  null,
-  { getHomeDataEpics },
+  mapStateToProps,
+  mapDispatchToProps,
 )(Test);
