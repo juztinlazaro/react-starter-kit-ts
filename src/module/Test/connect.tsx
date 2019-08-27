@@ -1,5 +1,5 @@
-import { Dispatch, bindActionCreators } from 'redux';
-import * as actions from 'store/home/actions';
+import { bindActionCreators } from 'redux';
+import * as actions from 'store/modules/home/actions';
 import { IRootReducer } from 'store/rootReducer.interface';
 
 export const mapStateToProps = (state: IRootReducer) => ({
