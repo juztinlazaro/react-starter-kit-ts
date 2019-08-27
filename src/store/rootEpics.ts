@@ -1,5 +1,5 @@
 import { combineEpics } from 'redux-observable';
-import { getHomeDataEpic } from './home/epics';
+import { getHomeDataEpic } from './modules/home/epics';
 
 const rootEpic = combineEpics<any>(getHomeDataEpic);
 
