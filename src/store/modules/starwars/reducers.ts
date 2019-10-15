@@ -5,7 +5,8 @@ import {
   getStarwarsError,
   getPlanetsLoading,
   getPlanetsSuccess,
-  getPlanetsError
+  getPlanetsError,
+  getPlanetsCancel
 } from './actions';
 import Model from './model';
 
@@ -54,6 +55,10 @@ export default handleActions<IStarwarsReducer, IPayload>(
     [onActionString(getPlanetsError)]: (state: IStarwarsReducer, action: any) => ({
       ...state,
       error: action.payload,
+      loading: false
+    }),
+    [onActionString(getPlanetsCancel)]: (state: IStarwarsReducer, action: any) => ({
+      ...state,
       loading: false
     })
   },

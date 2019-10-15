@@ -1,4 +1,4 @@
-import { call, put, take, fork, cancel } from 'redux-saga/effects';
+import { call, put, take, fork, cancel, delay, cancelled } from 'redux-saga/effects';
 import {
   getStarwarsSuccess,
   getStarwarsLoading,
@@ -33,8 +33,13 @@ export function* getPlanetsSaga() {
     const planets = yield call(api, 'https://swapi.co/api/planets/');
 
     yield put(getPlanetsSuccess(planets.results));
+    yield delay(5000);
   } catch (e) {
     yield put(getPlanetsError(e));
+  } finally {
+    if (yield cancelled()) {
+      console.log('cancel');
+    }
   }
 }
 

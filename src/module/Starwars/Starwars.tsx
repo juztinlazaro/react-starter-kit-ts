@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { mapStateToProps, mapDispatchToProps } from './connect';
 
@@ -15,15 +15,8 @@ const Starwars = (props: any) => {
   } = props;
   const [isConfirm, setConfirm] = useState(false);
 
-  useEffect(() => {
-    return () => {
-      getPlanetsCancel();
-    };
-  }, []);
-
   const handleGetStarwars = () => {
     setConfirm(true);
-    getPlanetsFork();
     getStarwarsRequest();
   };
 
@@ -47,7 +40,8 @@ const Starwars = (props: any) => {
 
       <div>
         {!loading && planets.map((planet: any) => <h5>{planet.name}</h5>)}
-        <button onClick={() => getPlanetsSaga()}> get planet </button>
+        <button onClick={() => getPlanetsFork()}> get planet </button>
+        <button onClick={() => getPlanetsCancel()}>Cancel</button>
       </div>
     </div>
   );
