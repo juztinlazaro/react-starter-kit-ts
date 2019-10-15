@@ -10,7 +10,8 @@ export const mapStateToProps = (state: IRootReducer) => ({
 export const mapDispatchToProps = (dispatch: any) =>
   bindActionCreators(
     {
-      getStarwarsRequest: () => actions.getStarwarsRequest()
+      getStarwarsRequest: () => actions.getStarwarsRequest(),
+      getStarwarsConfirm: () => actions.getStarwarsConfirm()
     },
     dispatch
   );
