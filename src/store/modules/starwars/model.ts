@@ -1,4 +1,5 @@
 export default {
   starwars: [],
-  loading: false
+  loading: false,
+  error: null
 };

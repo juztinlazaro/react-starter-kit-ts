@@ -3,7 +3,8 @@ import * as actions from 'store/modules/starwars/actions';
 import { IRootReducer } from '../../store/rootReducer.interface';
 
 export const mapStateToProps = (state: IRootReducer) => ({
-  starwars: state.starwars.starwars
+  starwars: state.starwars.starwars,
+  loading: state.starwars.loading
 });
 
 export const mapDispatchToProps = (dispatch: any) =>

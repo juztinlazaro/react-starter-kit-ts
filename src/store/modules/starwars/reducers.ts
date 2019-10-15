@@ -1,10 +1,11 @@
 import { handleActions } from 'redux-actions';
-import { getStarwarsSuccess } from './actions';
+import { getStarwarsSuccess, getStarwarsLoading, getStarwarsError } from './actions';
 import Model from './model';
 
 export interface IStarwarsReducer {
-  starwars: object;
+  starwars?: any;
   loading: boolean;
+  error?: any;
 }
 
 interface IPayload {
@@ -17,9 +18,19 @@ const onActionString = (action: any) => {
 
 export default handleActions<IStarwarsReducer, IPayload>(
   {
+    [onActionString(getStarwarsLoading)]: (state: object, action: any) => ({
+      ...state,
+      loading: true
+    }),
     [onActionString(getStarwarsSuccess)]: (state: object, action: any) => ({
       ...state,
       starwars: action.payload,
+      error: null,
+      loading: false
+    }),
+    [onActionString(getStarwarsError)]: (state: object, action: any) => ({
+      ...state,
+      error: action.payload,
       loading: false
     })
   },
