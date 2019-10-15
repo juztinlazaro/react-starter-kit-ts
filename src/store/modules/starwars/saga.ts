@@ -3,7 +3,10 @@ import {
   getStarwarsSuccess,
   getStarwarsLoading,
   getStarwarsError,
-  getStarwarsConfirm
+  getStarwarsConfirm,
+  getPlanetsLoading,
+  getPlanetsSuccess,
+  getPlanetsError
 } from './actions';
 
 const api = (url: any) => fetch(url).then(response => response.json());
@@ -19,6 +22,18 @@ export function* getStarwarsSaga(action: any) {
     yield put(getStarwarsSuccess(person.results));
   } catch (e) {
     yield put(getStarwarsError(e));
+  }
+}
+
+export function* getPlanetsSaga(action: any) {
+  try {
+    yield put(getPlanetsLoading());
+
+    const planets = yield call(api, 'https://swapi.co/api/planets/');
+
+    yield put(getPlanetsSuccess(planets.results));
+  } catch (e) {
+    yield put(getPlanetsError(e));
   }
 }
 

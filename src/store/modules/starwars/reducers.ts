@@ -1,10 +1,18 @@
 import { handleActions } from 'redux-actions';
-import { getStarwarsSuccess, getStarwarsLoading, getStarwarsError } from './actions';
+import {
+  getStarwarsSuccess,
+  getStarwarsLoading,
+  getStarwarsError,
+  getPlanetsLoading,
+  getPlanetsSuccess,
+  getPlanetsError
+} from './actions';
 import Model from './model';
 
 export interface IStarwarsReducer {
   starwars?: any;
   loading: boolean;
+  planets?: any;
   error?: any;
 }
 
@@ -18,17 +26,32 @@ const onActionString = (action: any) => {
 
 export default handleActions<IStarwarsReducer, IPayload>(
   {
-    [onActionString(getStarwarsLoading)]: (state: object, action: any) => ({
+    [onActionString(getStarwarsLoading)]: (state: IStarwarsReducer, action: any) => ({
       ...state,
       loading: true
     }),
-    [onActionString(getStarwarsSuccess)]: (state: object, action: any) => ({
+    [onActionString(getStarwarsSuccess)]: (state: IStarwarsReducer, action: any) => ({
       ...state,
       starwars: action.payload,
       error: null,
       loading: false
     }),
-    [onActionString(getStarwarsError)]: (state: object, action: any) => ({
+    [onActionString(getStarwarsError)]: (state: IStarwarsReducer, action: any) => ({
+      ...state,
+      error: action.payload,
+      loading: false
+    }),
+    [onActionString(getPlanetsLoading)]: (state: IStarwarsReducer, action: any) => ({
+      ...state,
+      loading: true
+    }),
+    [onActionString(getPlanetsSuccess)]: (state: IStarwarsReducer, action: any) => ({
+      ...state,
+      planets: action.payload,
+      error: null,
+      loading: false
+    }),
+    [onActionString(getPlanetsError)]: (state: IStarwarsReducer, action: any) => ({
       ...state,
       error: action.payload,
       loading: false

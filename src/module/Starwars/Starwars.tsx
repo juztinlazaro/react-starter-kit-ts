@@ -3,7 +3,14 @@ import { connect } from 'react-redux';
 import { mapStateToProps, mapDispatchToProps } from './connect';
 
 const Starwars = (props: any) => {
-  const { starwars, getStarwarsRequest, loading, getStarwarsConfirm } = props;
+  const {
+    starwars,
+    getStarwarsRequest,
+    getStarwarsConfirm,
+    getPlanetsSaga,
+    loading,
+    planets
+  } = props;
   const [isConfirm, setConfirm] = useState(false);
 
   const handleGetStarwars = () => {
@@ -20,11 +27,19 @@ const Starwars = (props: any) => {
       <h2>Starwars Saga</h2>
       {loading && <h1>Loading...</h1>}
 
-      {!loading && starwars.map((hero: any) => <h5>{hero.name}</h5>)}
+      <div>
+        {!loading && starwars.map((hero: any) => <h5>{hero.name}</h5>)}
 
-      <button onClick={handleGetStarwars}> get starwars </button>
+        <button onClick={handleGetStarwars}> get starwars hero </button>
+        {isConfirm && <button onClick={handleConfirmGet}> Confirm starwars </button>}
+      </div>
 
-      {isConfirm && <button onClick={handleConfirmGet}> Confirm starwars </button>}
+      <hr />
+
+      <div>
+        {!loading && planets.map((planet: any) => <h5>{planet.name}</h5>)}
+        <button onClick={() => getPlanetsSaga()}> get planet </button>
+      </div>
     </div>
   );
 };
