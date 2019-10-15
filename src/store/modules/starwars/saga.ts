@@ -21,3 +21,29 @@ export function* getStarwarsRequest(action: any) {
     yield put(getStarwarsError(e));
   }
 }
+
+// function* handleInput(input: any) {
+//   //...
+// }
+
+// function* watchInput() {
+//   yield throttle(500, 'INPUT_CHANGES', handleInput)
+// }
+
+// export function* getStarwarsRequest(action: any) {
+//   try {
+
+//     yield put(getStarwarsLoading());
+
+//     const person = yield call(api, 'https://swapi.co/api/people/');
+
+//     const selector = yield select(state => state.starwars);
+
+//     console.log('selector', selector);
+//     yield
+
+//     yield put(getStarwarsSuccess(person.results));
+//   } catch (e) {
+//     yield put(getStarwarsError(e));
+//   }
+// }
