@@ -8,7 +8,7 @@ import {
 
 const api = (url: any) => fetch(url).then(response => response.json());
 
-export function* getStarwarsRequest(action: any) {
+export function* getStarwarsSaga(action: any) {
   try {
     yield take(getStarwarsConfirm);
 
@@ -30,7 +30,7 @@ export function* getStarwarsRequest(action: any) {
 //   yield throttle(500, 'INPUT_CHANGES', handleInput)
 // }
 
-// export function* getStarwarsRequest(action: any) {
+// export function* getStarwarsSaga(action: any) {
 //   try {
 
 //     yield put(getStarwarsLoading());
