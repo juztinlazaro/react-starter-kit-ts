@@ -21,6 +21,10 @@ const Navigation = () => {
             Public
           </Link>
 
+          <Link to="/starwars" className="link">
+            Starwars Saga
+          </Link>
+
           <button className="action-button logout" onClick={onLogout}>
             Logout
           </button>

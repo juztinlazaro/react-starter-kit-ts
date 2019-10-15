@@ -12,12 +12,12 @@ interface ITestState {
 }
 class Test extends React.Component<ITestProps, ITestState> {
   state = {
-    status: false,
+    status: false
   };
 
   componentDidMount() {
     this.setState({
-      status: true,
+      status: true
     });
   }
 
@@ -27,7 +27,7 @@ class Test extends React.Component<ITestProps, ITestState> {
 
   handleChangeStatus = () => {
     this.setState(prevState => ({
-      status: !prevState.status,
+      status: !prevState.status
     }));
   };
 
@@ -49,5 +49,5 @@ class Test extends React.Component<ITestProps, ITestState> {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(Test);
