@@ -1,4 +1,4 @@
-import { call, put, take } from 'redux-saga/effects';
+import { call, put, take, fork, cancel } from 'redux-saga/effects';
 import {
   getStarwarsSuccess,
   getStarwarsLoading,
@@ -6,12 +6,13 @@ import {
   getStarwarsConfirm,
   getPlanetsLoading,
   getPlanetsSuccess,
-  getPlanetsError
+  getPlanetsError,
+  getPlanetsCancel
 } from './actions';
 
 const api = (url: any) => fetch(url).then(response => response.json());
 
-export function* getStarwarsSaga(action: any) {
+export function* getStarwarsSaga() {
   try {
     yield take(getStarwarsConfirm);
 
@@ -25,7 +26,7 @@ export function* getStarwarsSaga(action: any) {
   }
 }
 
-export function* getPlanetsSaga(action: any) {
+export function* getPlanetsSaga() {
   try {
     yield put(getPlanetsLoading());
 
@@ -35,6 +36,12 @@ export function* getPlanetsSaga(action: any) {
   } catch (e) {
     yield put(getPlanetsError(e));
   }
+}
+
+export function* getPlanetsFork() {
+  const syncGetStarwars = yield fork(getPlanetsSaga);
+  yield take(getPlanetsCancel);
+  yield cancel(syncGetStarwars);
 }
 
 // function* handleInput(input: any) {

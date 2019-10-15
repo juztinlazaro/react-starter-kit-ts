@@ -11,3 +11,5 @@ export const getPlanetsSaga = createAction(TYPES.GET_PLANETS_SAGA);
 export const getPlanetsSuccess = createAction(TYPES.GET_PLANETS_SUCCESS);
 export const getPlanetsError = createAction(TYPES.GET_PLANETS_ERROR);
 export const getPlanetsLoading = createAction(TYPES.GET_PLANETS_LOADING);
+export const getPlanetsCancel = createAction(TYPES.GET_PLANENTS_CANCEL);
+export const getPlanetsFork = createAction(TYPES.GET_PLANENTS_FORK);

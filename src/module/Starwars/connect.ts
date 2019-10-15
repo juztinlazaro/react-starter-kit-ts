@@ -13,7 +13,9 @@ export const mapDispatchToProps = (dispatch: any) =>
     {
       getStarwarsRequest: () => actions.getStarwarsSaga(),
       getStarwarsConfirm: () => actions.getStarwarsConfirm(),
-      getPlanetsSaga: () => actions.getPlanetsSaga()
+      getPlanetsSaga: () => actions.getPlanetsSaga(),
+      getPlanetsFork: () => actions.getPlanetsFork(),
+      getPlanetsCancel: () => actions.getPlanetsCancel()
     },
     dispatch
   );
