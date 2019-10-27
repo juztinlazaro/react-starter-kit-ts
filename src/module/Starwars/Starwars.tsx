@@ -30,7 +30,7 @@ const Starwars = (props: any) => {
       {loading && <h1>Loading...</h1>}
 
       <div>
-        {!loading && starwars.map((hero: any) => <h5>{hero.name}</h5>)}
+        {!loading && starwars.map((hero: any) => <h5 key={hero.name}>{hero.name}</h5>)}
 
         <button onClick={handleGetStarwars}> get starwars hero </button>
         {isConfirm && <button onClick={handleConfirmGet}> Confirm starwars </button>}
@@ -39,7 +39,8 @@ const Starwars = (props: any) => {
       <hr />
 
       <div>
-        {!loading && planets.map((planet: any) => <h5>{planet.name}</h5>)}
+        {!loading &&
+          planets.map((planet: any) => <h5 key={planet.name}>{planet.name}</h5>)}
         <button onClick={() => getPlanetsFork()}> get planet </button>
         <button onClick={() => getPlanetsCancel()}>Cancel</button>
       </div>
