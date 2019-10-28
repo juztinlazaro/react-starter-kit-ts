@@ -9,12 +9,14 @@ import {
   getPlanetsCancel
 } from './actions';
 import Model from './model';
+import { GET_PLANETS_SUCCESS } from './types';
 
 export interface IStarwarsReducer {
   starwars?: any;
   loading: boolean;
   planets?: any;
   error?: any;
+  success?: any;
 }
 
 interface IPayload {
@@ -44,18 +46,35 @@ export default handleActions<IStarwarsReducer, IPayload>(
     }),
     [onActionString(getPlanetsLoading)]: (state: IStarwarsReducer, action: any) => ({
       ...state,
-      loading: true
+      loading: true,
+      success: {
+        type: '',
+        status: false
+      },
+      error: {
+        type: '',
+        status: false,
+        message: ''
+      }
     }),
     [onActionString(getPlanetsSuccess)]: (state: IStarwarsReducer, action: any) => ({
       ...state,
       planets: action.payload,
       error: null,
-      loading: false
+      loading: false,
+      success: {
+        type: GET_PLANETS_SUCCESS,
+        status: true
+      }
     }),
     [onActionString(getPlanetsError)]: (state: IStarwarsReducer, action: any) => ({
       ...state,
-      error: action.payload,
-      loading: false
+      loading: false,
+      error: {
+        type: GET_PLANETS_SUCCESS,
+        status: true,
+        message: action.payload
+      }
     }),
     [onActionString(getPlanetsCancel)]: (state: IStarwarsReducer, action: any) => ({
       ...state,
