@@ -10,7 +10,7 @@ import {
   getPlanetsCancel
 } from './actions';
 
-const api = (url: any) => fetch(url).then(response => response.json());
+export const api = (url: any) => fetch(url).then(response => response.json());
 
 export function* getStarwarsSaga() {
   try {
