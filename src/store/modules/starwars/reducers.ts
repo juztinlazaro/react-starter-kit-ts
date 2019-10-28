@@ -9,7 +9,7 @@ import {
   getPlanetsCancel
 } from './actions';
 import Model from './model';
-import { GET_PLANETS_SUCCESS } from './types';
+import { GET_PLANETS_SUCCESS, GET_PLANETS_ERROR } from './types';
 
 export interface IStarwarsReducer {
   starwars?: any;
@@ -71,7 +71,7 @@ export default handleActions<IStarwarsReducer, IPayload>(
       ...state,
       loading: false,
       error: {
-        type: GET_PLANETS_SUCCESS,
+        type: GET_PLANETS_ERROR,
         status: true,
         message: action.payload
       }
