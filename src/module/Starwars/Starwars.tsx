@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { mapStateToProps, mapDispatchToProps } from './connect';
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { mapStateToProps, mapDispatchToProps } from "./connect";
+import { IProps } from "./interface";
 
-const Starwars = (props: any) => {
-  const {
-    starwars,
-    getStarwarsRequest,
-    getStarwarsConfirm,
-    getPlanetsSaga,
-    getPlanetsFork,
-    getPlanetsCancel,
-    loading,
-    planets
-  } = props;
+const Starwars = ({
+  starwars,
+  getStarwarsRequest,
+  getStarwarsConfirm,
+  getPlanetsFork,
+  getPlanetsCancel,
+  loading,
+  planets,
+}: IProps) => {
   const [isConfirm, setConfirm] = useState(false);
 
   const handleGetStarwars = () => {
@@ -30,17 +29,22 @@ const Starwars = (props: any) => {
       {loading && <h1>Loading...</h1>}
 
       <div>
-        {!loading && starwars.map((hero: any) => <h5 key={hero.name}>{hero.name}</h5>)}
+        {!loading &&
+          starwars.map((hero: any) => <h5 key={hero.name}>{hero.name}</h5>)}
 
         <button onClick={handleGetStarwars}> get starwars hero </button>
-        {isConfirm && <button onClick={handleConfirmGet}> Confirm starwars </button>}
+        {isConfirm && (
+          <button onClick={handleConfirmGet}> Confirm starwars </button>
+        )}
       </div>
 
       <hr />
 
       <div>
         {!loading &&
-          planets.map((planet: any) => <h5 key={planet.name}>{planet.name}</h5>)}
+          planets.map((planet: any) => (
+            <h5 key={planet.name}>{planet.name}</h5>
+          ))}
         <button onClick={() => getPlanetsFork()}> get planet </button>
         <button onClick={() => getPlanetsCancel()}>Cancel</button>
       </div>
@@ -50,5 +54,5 @@ const Starwars = (props: any) => {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Starwars);
