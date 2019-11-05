@@ -1,12 +1,10 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import { IRootReducer } from './rootReducer.interface';
-import homeReducer from './modules/home/reducer';
-import StarwarsReducer from './modules/starwars/reducers';
+import { IRootReducer } from "./rootReducer.interface";
+import StarwarsReducer from "./modules/starwars/reducers";
 
 const rootReducers = combineReducers<IRootReducer>({
-  homes: homeReducer,
-  starwars: StarwarsReducer
+  starwars: StarwarsReducer,
 });
 
 export default rootReducers;

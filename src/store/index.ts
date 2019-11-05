@@ -3,7 +3,6 @@ import { createStore, applyMiddleware } from "redux";
 import { createEpicMiddleware } from "redux-observable";
 import createSagaMiddleware from "redux-saga";
 
-import rootEpic from "./rootEpics";
 import rootReducer from "./rootReducers";
 import rootSaga from "./rootSaga";
 
@@ -18,7 +17,6 @@ const store = createStore(
   composeEnhancers(applyMiddleware(epicMiddlerware, sagaMiddleware)),
 );
 
-epicMiddlerware.run(rootEpic);
 sagaMiddleware.run(rootSaga);
 
 export default store;
