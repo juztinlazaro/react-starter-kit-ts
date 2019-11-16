@@ -1,4 +1,4 @@
-import { IHomeReducer } from './home/reducer';
+import { IHomeReducer } from "./modules/home/reducer";
 
 export interface IRootReducer {
   homes: IHomeReducer;
