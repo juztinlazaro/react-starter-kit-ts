@@ -9,13 +9,13 @@ const Home = () => {
     "https://jsonplaceholder.typicode.com/users/1",
   );
 
-  console.log("isLoading", isLoading);
-
   return (
     <div>
       <h1>Home</h1>
 
       <p>{status ? "true" : "false"}</p>
+
+      {status ? <span id="logout">logout</span> : <span id="login">login</span>}
 
       <button onClick={() => setStatus(!status)}>something</button>
     </div>
