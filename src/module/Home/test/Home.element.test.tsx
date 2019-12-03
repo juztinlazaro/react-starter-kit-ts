@@ -8,6 +8,10 @@ Enzyme.configure({ adapter: new Adapter() });
 describe("Home test element", () => {
   const HomeWrapper = shallow(<Home />);
 
+  it("should match to snapshot", () => {
+    expect(HomeWrapper).toMatchSnapshot();
+  });
+
   it("should status initial value false", () => {
     const status = HomeWrapper.find("p");
     expect(status.text()).toEqual("false");
