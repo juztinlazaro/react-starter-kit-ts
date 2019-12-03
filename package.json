@@ -39,7 +39,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test:": "react-scripts test --coverage",
+    "test:report": "react-scripts test --coverage --watchAll",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -53,6 +54,8 @@
   ],
   "devDependencies": {
     "@testing-library/react-hooks": "^3.2.1",
+    "enzyme-to-json": "^3.4.3",
+    "jest-useragent-mock": "0.0.3",
     "redux-devtools-extension": "^2.13.8",
     "tslint-react-hooks": "^2.1.0"
   }
