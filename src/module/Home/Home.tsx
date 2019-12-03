@@ -1,5 +1,5 @@
 import * as React from "react";
-import useFetch from "common/hooks/useFetch";
+import useFetch from "../../common/hooks/useFetch";
 import useStatus from "./useStatus";
 
 const Home = () => {

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import Router from './routes';
-import AppContext from './App.context';
-import Layout from 'components/Layout/Layout';
+import React, { Component } from "react";
+import Router from "./routes";
+import AppContext from "./App.context";
+import Layout from "../components/Layout/Layout";
 
 interface IAppState {
   isLoggedIn: boolean;
@@ -13,20 +13,20 @@ class App extends Component<{}, IAppState> {
   };
 
   componentDidMount() {
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
     this.setState({
-      isLoggedIn: isLoggedIn === 'true',
+      isLoggedIn: isLoggedIn === "true",
     });
   }
 
   handleLogin = () => {
     this.setState({ isLoggedIn: true });
-    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem("isLoggedIn", "true");
   };
 
   handleLogout = () => {
     this.setState({ isLoggedIn: false });
-    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem("isLoggedIn");
   };
 
   render() {
