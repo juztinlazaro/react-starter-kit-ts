@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Router from "./routes";
 import AppContext from "./App.context";
-import Layout from "../components/Layout/Layout";
+import Layout from "components/Layout/Layout";
 
 interface IAppState {
   isLoggedIn: boolean;

@@ -1,5 +1,6 @@
 module.exports = {
   collectCoverage: true,
+  coverageReporters: ["json", "html"],
   moduleFileExtensions: ["js", "jsx", "ts", "tsx"],
   modulePaths: ["<rootDir>/src/"],
   setupFiles: ["raf/polyfill", "jest-useragent-mock"],
@@ -18,6 +19,7 @@ module.exports = {
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
   },
+  cacheDirectory: "<rootDir>/.cache/unit",
   coverageThreshold: {
     global: {
       statements: 50,

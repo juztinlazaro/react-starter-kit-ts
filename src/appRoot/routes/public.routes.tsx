@@ -1,6 +1,6 @@
 import { lazy } from "react";
 
-const Public = lazy(() => import("../../module/Public/Public"));
+const Public = lazy(() => import("module/Public/Public"));
 
 const publicRoutesList = [
   {

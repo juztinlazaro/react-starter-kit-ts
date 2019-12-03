@@ -1,7 +1,7 @@
 import { lazy } from "react";
 
-const Test = lazy(() => import("../../module/Test/Test"));
-const Home = lazy(() => import("../../module/Home/Home"));
+const Test = lazy(() => import("module/Test/Test"));
+const Home = lazy(() => import("module/Home/Home"));
 
 const privateRoutesList = [
   {

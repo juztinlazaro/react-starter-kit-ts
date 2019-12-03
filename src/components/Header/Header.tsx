@@ -1,5 +1,5 @@
 import React from "react";
-import ReactLogo from "../../components/ReactLogo/ReactLogo";
+import ReactLogo from "components/ReactLogo/ReactLogo";
 import Navigation from "./Navigation";
 
 const Header = () => {
