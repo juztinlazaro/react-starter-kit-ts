@@ -1,33 +1,39 @@
 import React from 'react';
 import ReactTypescriptLogo from 'assets/image/typescriptReact.png';
+import { 
+  PublicSection,
+  AuthorInformation,
+  LogoItems,
+  ReactTypescriptLogoImage
+} from 'assets/styled/public.style';
 
 const Public = () => {
   return (
-    <section className="public-section">
+    <PublicSection>
       <h1>React Typescript Starterkit v1</h1>
 
-      <div className="logo-items">
+      <LogoItems>
         <div className="logo-item">
-          <img
+          <ReactTypescriptLogoImage
             alt="react-ts-logo"
             className="react-typescript-logo"
             src={ReactTypescriptLogo}
           />
         </div>
-      </div>
+      </LogoItems>
 
-      <div className="author-information">
+      <AuthorInformation>
         <div className="about-author _spacer">
           Staterkit for react ts is an opinionated boilerplate for web
           development built on top of create react app and typescript. Helping
           us to stay productive following the best practices. A solid starting
           point for both professionals and beginers.
         </div>
-      </div>
+      </AuthorInformation>
 
       <hr className="_border-bottom-separator" />
 
-      <div className="author-information">
+      <AuthorInformation>
         <span className="title"> Justin Lazaro</span>
         <span className="position _spacer">Frontend developer</span>
 
@@ -35,8 +41,8 @@ const Public = () => {
           "No code is perfect they said, but Good Practices, Code Standards, and
           Principles helps you to be perfect."
         </div>
-      </div>
-    </section>
+      </AuthorInformation>
+    </PublicSection>
   );
 };
 

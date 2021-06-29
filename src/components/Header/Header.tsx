@@ -1,18 +1,19 @@
 import React from 'react';
 import ReactLogo from 'components/ReactLogo/ReactLogo';
+import { HeaderSection, HeaderItem, HeaderTitle } from 'assets/styled/header.style';
 import Navigation from './Navigation';
 
 const Header = () => {
   return (
-    <section className="header-section">
-      <div className="item">
-        <span className="title">
+    <HeaderSection>
+      <HeaderItem>
+        <HeaderTitle>
           <ReactLogo />
-        </span>
-      </div>
+        </HeaderTitle>
+      </HeaderItem>
 
       <Navigation />
-    </section>
+    </HeaderSection>
   );
 };
 

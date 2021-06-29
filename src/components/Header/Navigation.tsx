@@ -1,25 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAppContext } from 'appRoot/App.context';
+import { LinkItem, HeaderItem } from 'assets/styled/header.style';
 
 const Navigation = () => {
   const { isLoggedIn, onLogin, onLogout } = useAppContext();
 
   return (
-    <div className="item link-items">
+    <HeaderItem>
       {isLoggedIn ? (
         <>
-          <Link to="/" className="link">
-            Home
-          </Link>
+          <LinkItem>
+            <Link to="/">
+              Home
+            </Link>
+          </LinkItem>
 
-          <Link to="/test" className="link">
-            Test
-          </Link>
+          <LinkItem>
+            <Link to="/test">
+              Test
+            </Link>
+          </LinkItem>
 
-          <Link to="/public" className="link">
-            Public
-          </Link>
+          <LinkItem>
+            <Link to="/public">
+              Public
+            </Link>
+          </LinkItem>
 
           <button className="action-button logout" onClick={onLogout}>
             Logout
@@ -30,7 +37,7 @@ const Navigation = () => {
           Login
         </button>
       )}
-    </div>
+    </HeaderItem>
   );
 };
 
