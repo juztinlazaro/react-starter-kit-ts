@@ -1,4 +1,6 @@
+import { SagaIterator } from 'redux-saga';
 import { call, put, take, fork, cancel, delay, cancelled } from 'redux-saga/effects';
+import { people_api, planets_api } from 'store/endpoints/starwars';
 import {
   getStarwarsSuccess,
   getStarwarsLoading,
@@ -12,13 +14,13 @@ import {
 
 export const api = (url: any) => fetch(url).then(response => response.json());
 
-export function* getStarwarsSaga() {
+
+export function* getStarwarsSaga(): SagaIterator {
   try {
     yield take(getStarwarsConfirm);
 
     yield put(getStarwarsLoading());
-
-    const person = yield call(api, 'https://swapi.co/api/people/');
+    const person = yield call(api, people_api);
 
     yield put(getStarwarsSuccess(person.results));
   } catch (e) {
@@ -26,11 +28,11 @@ export function* getStarwarsSaga() {
   }
 }
 
-export function* getPlanetsSaga() {
+export function* getPlanetsSaga(): SagaIterator {
   try {
     yield put(getPlanetsLoading());
 
-    const planets = yield call(api, 'https://swapi.co/api/planets/');
+    const planets = yield call(api, planets_api);
 
     yield put(getPlanetsSuccess(planets.results));
     yield delay(5000);
@@ -43,7 +45,7 @@ export function* getPlanetsSaga() {
   }
 }
 
-export function* getPlanetsFork() {
+export function* getPlanetsFork(): SagaIterator {
   const syncGetStarwars = yield fork(getPlanetsSaga);
   yield take(getPlanetsCancel);
   yield cancel(syncGetStarwars);

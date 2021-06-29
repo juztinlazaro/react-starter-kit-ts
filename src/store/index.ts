@@ -1,6 +1,5 @@
 import { composeWithDevTools } from "redux-devtools-extension";
 import { createStore, applyMiddleware } from "redux";
-import { createEpicMiddleware } from "redux-observable";
 import createSagaMiddleware from "redux-saga";
 
 import rootReducer from "./rootReducers";
@@ -10,11 +9,10 @@ const composeEnhancers = composeWithDevTools({});
 
 const sagaMiddleware = createSagaMiddleware();
 
-const epicMiddlerware = createEpicMiddleware();
 
 const store = createStore(
   rootReducer,
-  composeEnhancers(applyMiddleware(epicMiddlerware, sagaMiddleware)),
+  composeEnhancers(applyMiddleware(sagaMiddleware)),
 );
 
 sagaMiddleware.run(rootSaga);
